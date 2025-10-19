@@ -1,5 +1,18 @@
 - ¿**Qué chatbot(s)** usaste?
+  - Utilicé OpenAI — GPT-5 a través de su interfaz conversacional.
+  - Lo usé como un asistente técnico para generar la base inicial de la aplicación web y luego refinarla con requisitos más específicos (múltiples timers, audio, UX, SOLID).
 - ¿**Qué problemas** encontraste al interactuar con el modelo?
+  - Inicialmente, el flujo de reinicio de cuenta regresiva no estaba bien contemplado: el modelo no previó que remainingMs quedaría en 0 y bloquearía un nuevo inicio.
+  - El sonido no se reproducía al finalizar porque no tuvo en cuenta las restricciones de autoplay de los navegadores modernos.
+  - En las primeras versiones, faltaba un “estado mental” más robusto en la clase base, por lo que algunas acciones se salían del flujo esperado (por ejemplo, canStart() demasiado restrictivo).
+  - También fue necesario refinar la estructura del TimerManager para manejar mejor la actualización de UI y los eventos dinámicos.
 - ¿**Qué decisiones**  tuviste que tomar tú como desarrollador para mejorar el código propuesto?
-- ¿**Qué decisiones** tuviste que tomar tú como desarrollador para mejorar el código propuesto?
+  - Incluir en el prompt qué tecnología usar
+  - Incluir en el prompt inicial los principios de desarrollo a seguir
+  - Pruebas finales manuales para verificar el correcto funcionamiento
 - ¿**Cómo evaluarías** la utilidad de este flujo de trabajo real?
+  - Alta utilidad, pero no perfecta.
+  - Acelera la creación de un MVP funcional en minutos, sobre todo si defines bien los requisitos desde el inicio.
+  - Aún requiere pensamiento crítico para cubrir casos reales de UX y compatibilidad del navegador.
+  - La arquitectura propuesta por el modelo es buena base, pero necesita revisión técnica para comportamientos edge-case (reinicios, estados inválidos, eventos asíncronos).
+  - Excelente para tareas repetitivas y estructuración inicial, pero el desarrollador debe decidir detalles técnicos y asegurar robustez.
