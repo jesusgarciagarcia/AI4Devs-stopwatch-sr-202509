@@ -1,13 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Timer and Countdown</title>
-<link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Timer & Countdown</title>
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
-<h1>Timer and Countdown</h1>
-<script src="script.js"></script>
+
+<body class="bg-gray-100 flex flex-col items-center justify-center min-h-screen p-4">
+    <h1 class="text-3xl font-bold mb-6 text-center text-gray-800">
+        ⏱️ Timer & Countdown MVP
+    </h1>
+    <p class="text-gray-600 mb-8 text-center max-w-md">
+        Inicia el cronómetro o configura tu cuenta regresiva.
+        Al terminar, verás una alerta y escucharás un sonido 🎉
+    </p>
+
+    <!-- Stopwatch Section -->
+    <section class="bg-white shadow-lg rounded-lg p-6 mb-8 w-full max-w-md text-center">
+        <h2 class="text-2xl font-semibold mb-4 text-gray-800">Cronómetro</h2>
+        <div id="stopwatch-display" class="text-5xl font-mono mb-4 bg-blue-50 p-4 rounded-lg">
+            00:00:00
+        </div>
+        <div class="flex justify-center gap-4">
+            <button id="stopwatch-start" class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600">
+                Start / Pause
+            </button>
+            <button id="stopwatch-clear" class="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600">
+                Clear
+            </button>
+        </div>
+    </section>
+
+    <!-- Countdown Section -->
+    <section class="bg-white shadow-lg rounded-lg p-6 w-full max-w-md text-center">
+        <h2 class="text-2xl font-semibold mb-4 text-gray-800">Cuenta Regresiva</h2>
+        <div id="countdown-display" class="text-5xl font-mono mb-4 bg-blue-50 p-4 rounded-lg">
+            00:00:00
+        </div>
+        <input id="countdown-input" type="number" min="1" placeholder="Segundos"
+            class="border p-2 rounded w-1/2 mb-4 text-center" />
+        <div class="flex justify-center gap-4">
+            <button id="countdown-start" class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600">
+                Start / Pause
+            </button>
+            <button id="countdown-clear" class="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600">
+                Clear
+            </button>
+        </div>
+    </section>
+
+    <audio id="alarm-sound" src="https://actions.google.com/sounds/v1/alarms/digital_watch_alarm_long.ogg"></audio>
+    <script src="script.js"></script>
 </body>
+
 </html>
